@@ -2,6 +2,7 @@ package com.planner.web.core.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +12,7 @@ import java.util.List;
 @Data
 @Table(name = "days")
 @AllArgsConstructor
+@NoArgsConstructor
 public class Day {
 
     @Id
@@ -28,6 +30,4 @@ public class Day {
     @OneToMany(mappedBy = "day")
     private List<Event> events;
 
-    public Day() {
-    }
 }

@@ -1,5 +1,6 @@
 package com.planner.web.core.services;
 
+import com.planner.web.core.dto.EventDetails;
 import com.planner.web.core.entities.Event;
 import com.planner.web.core.repositories.EventRepository;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +20,15 @@ public class EventService {
 
     public List<Event> findAllByUsername(String username) {
         return eventRepository.findAllByUserNames(username);
+    }
+
+    public void createEvent(List<String> userNames, EventDetails eventDetails) {
+        Event event = Event.builder()
+                .name(eventDetails.getName())
+                .content(eventDetails.getContent())
+                .userNames(userNames)
+                .day(eventDetails.getDay())
+                .build();
+        eventRepository.save(event);
     }
 }

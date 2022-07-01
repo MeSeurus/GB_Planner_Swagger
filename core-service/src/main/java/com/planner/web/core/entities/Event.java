@@ -1,7 +1,9 @@
 package com.planner.web.core.entities;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,6 +12,8 @@ import java.util.List;
 @Data
 @Table(name = "events")
 @AllArgsConstructor
+@Builder
+@NoArgsConstructor
 public class Event {
 
     @Id
@@ -29,7 +33,4 @@ public class Event {
     @ManyToOne
     private Day day;
 
-    public Event() {
-
-    }
 }
