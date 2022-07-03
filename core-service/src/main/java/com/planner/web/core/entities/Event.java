@@ -28,13 +28,13 @@ public class Event {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany
+    @ManyToMany()
     @JoinTable(
             name = "users_events",
             joinColumns = @JoinColumn(name = "event_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
-    private List<User> usernameList;
+    private List<User> users;
 
     @ManyToOne
     @JoinColumn(name = "day_id")
@@ -46,11 +46,13 @@ public class Event {
     @Column(name = "event_end")
     private LocalDateTime eventEnd;
 
-    public Event(Long id, String title, String content, List<User> usernameList, Day day) {
+    public Event(Long id, String title, String content, List<User> users, Day day) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.usernameList = usernameList;
+        this.users = users;
         this.day = day;
     }
+
+
 }

@@ -19,13 +19,22 @@ public class EventController {
     private final EventService eventService;
     private final EventConverter eventConverter;
 
+    @GetMapping()
+    public List<EventDto> findAll() {
+        return eventService.findAll().stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
+    }
+
     @GetMapping("/day/{id}")
     public List<EventDto> findEventsByDayId(@PathVariable Long id) {
         return eventService.findEventsByDayId(id).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
     }
 
-    @GetMapping()
-    public List<EventDto> findAllByUsername(@RequestHeader String username) {
+    /**
+     * пока через PathVariable для простоты отладки через постман без фронта
+     * todo переделать на RequestHeader
+     */
+    @GetMapping("/username/{username}")
+    public List<EventDto> findAllByUsername(@PathVariable String username) {
         return eventService.findAllByUsername(username).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
     }
 
@@ -33,7 +42,6 @@ public class EventController {
     public void createEvent(@RequestHeader List<String> usernameList, @RequestBody EventDetails eventDetails) {
         eventService.createEvent(usernameList, eventDetails);
     }
-
 
 
 }

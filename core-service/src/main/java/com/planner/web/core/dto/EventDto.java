@@ -2,6 +2,8 @@ package com.planner.web.core.dto;
 
 import com.planner.web.core.entities.Day;
 
+import javax.persistence.Column;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class EventDto {
@@ -12,16 +14,19 @@ public class EventDto {
 
     private String content;
 
-    private List<UserDto> usernameList;
-
     private Day day;
 
-    public EventDto(Long id, String title, String content, List<UserDto> usernameList, Day day) {
+    private LocalDateTime eventStart;
+
+    private LocalDateTime eventEnd;
+
+    public EventDto(Long id, String title, String content, Day day, LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.usernameList = usernameList;
         this.day = day;
+        this.eventStart = eventStart;
+        this.eventEnd = eventEnd;
     }
 
     public Long getId() {
@@ -46,14 +51,6 @@ public class EventDto {
 
     public void setContent(String content) {
         this.content = content;
-    }
-
-    public List<UserDto> getUsernameList() {
-        return usernameList;
-    }
-
-    public void setUsernameList(List<UserDto> usernameList) {
-        this.usernameList = usernameList;
     }
 
     public Day getDay() {

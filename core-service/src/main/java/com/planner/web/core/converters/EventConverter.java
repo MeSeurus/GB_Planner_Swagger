@@ -13,13 +13,11 @@ import java.util.stream.Collectors;
 public class EventConverter {
 
     public Event dtoToEntity(EventDto eventDto) {
-        List<User> users = eventDto.getUsernameList().stream().map(u -> new User(u.getNickname())).collect(Collectors.toList());
-        return new Event(eventDto.getId(), eventDto.getTitle(), eventDto.getContent(), users, eventDto.getDay());
+        throw new UnsupportedOperationException();
     }
 
     public EventDto entityToDto(Event event) {
-        List<UserDto> usersDto = event.getUsernameList().stream().map(u -> new UserDto(u.getNickname())).collect(Collectors.toList());
-        return new EventDto(event.getId(), event.getTitle(), event.getContent(), usersDto, event.getDay());
+        return new EventDto(event.getId(), event.getTitle(), event.getContent(), event.getDay(), event.getEventStart(), event.getEventEnd());
     }
 
 }
