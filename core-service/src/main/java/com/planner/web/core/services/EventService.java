@@ -8,7 +8,6 @@ import com.planner.web.core.repositories.EventRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,7 +30,7 @@ public class EventService {
     public void createEvent(List<String> usernameList, EventDetails eventDetails) {
         List<User> users = usernameList.stream().map(u -> new User(u)).collect(Collectors.toList());
         Event event = Event.builder()
-                .title(eventDetails.getName())
+                .title(eventDetails.getTitle())
                 .content(eventDetails.getContent())
                 .users(users)
                 .day(eventDetails.getDay())
