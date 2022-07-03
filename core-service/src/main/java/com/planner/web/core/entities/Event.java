@@ -1,19 +1,17 @@
 package com.planner.web.core.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
-@Data
 @Table(name = "events")
 @AllArgsConstructor
 @Builder
+@Getter
+@Setter
 @NoArgsConstructor
 public class Event {
 
@@ -28,7 +26,7 @@ public class Event {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany()
+    @ManyToMany
     @JoinTable(
             name = "users_events",
             joinColumns = @JoinColumn(name = "event_id"),

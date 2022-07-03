@@ -1,5 +1,6 @@
 package com.planner.web.core.services;
 
+import com.planner.web.core.dto.UserDto;
 import com.planner.web.core.entities.User;
 import com.planner.web.core.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,13 +19,12 @@ public class UserService {
         return userRepository.findUserByNickname(nickname);
     }
 
-    public List<User> findAllWithEvents() {
-        return userRepository.findAll();
-    }
-
     public void createNew(String nickname) {
         User user = new User(nickname);
         userRepository.save(user);
     }
 
+    public List<User> findAll() {
+        return userRepository.findAll();
+    }
 }

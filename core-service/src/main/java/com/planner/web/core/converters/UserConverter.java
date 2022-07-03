@@ -1,8 +1,12 @@
 package com.planner.web.core.converters;
 
+import com.planner.web.core.dto.EventDto;
 import com.planner.web.core.dto.UserDto;
 import com.planner.web.core.entities.User;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class UserConverter {
@@ -16,7 +20,9 @@ public class UserConverter {
     }
 
     public UserDto entityToDtoWithEvents(User user) {
-        return new UserDto(user.getId(), user.getNickname(), user.getEvents());
+        List<EventDto> eventDtos = user.getEvents().stream().
+                map(e -> new EventDto(e.getId(), e.getTitle(), e.getContent(), e.getDay().getWeekday())).collect(Collectors.toList());
+        return new UserDto(user.getId(), user.getNickname(), eventDtos);
     }
 
 }

@@ -1,8 +1,7 @@
 package com.planner.web.core.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -10,7 +9,8 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 public class User {
 
@@ -22,12 +22,13 @@ public class User {
     @Column(name = "nickname")
     private String nickname;
 
-    @ManyToMany()
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_events",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "event_id")
     )
+    @JsonIgnoreProperties("users")
     private List<Event> events;
 
     public User(String nickname) {

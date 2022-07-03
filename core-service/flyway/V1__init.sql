@@ -19,7 +19,7 @@ create table if not exists events
 create table if not exists users
 (
     id              bigserial primary key,
-    nickname        varchar(60) not null
+    nickname        varchar(60) not null,
 
 );
 

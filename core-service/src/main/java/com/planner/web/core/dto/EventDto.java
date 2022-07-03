@@ -14,19 +14,26 @@ public class EventDto {
 
     private String content;
 
-    private Day day;
+    private String dayName;
 
     private LocalDateTime eventStart;
 
     private LocalDateTime eventEnd;
 
-    public EventDto(Long id, String title, String content, Day day, LocalDateTime eventStart, LocalDateTime eventEnd) {
+    public EventDto(Long id, String title, String content, String dayName, LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.day = day;
+        this.dayName = dayName;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
+    }
+
+    public EventDto(Long id, String title, String content, String dayName) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.dayName = dayName;
     }
 
     public Long getId() {
@@ -53,11 +60,15 @@ public class EventDto {
         this.content = content;
     }
 
-    public Day getDay() {
-        return day;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setDay(Day day) {
-        this.day = day;
+    public String getDayName() {
+        return dayName;
+    }
+
+    public void setDayName(String dayName) {
+        this.dayName = dayName;
     }
 }

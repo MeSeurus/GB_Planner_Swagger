@@ -13,7 +13,7 @@ public class EventConverter {
     }
 
     public EventDto entityToDto(Event event) {
-        return new EventDto(event.getId(), event.getTitle(), event.getContent(), event.getDay(), event.getEventStart(), event.getEventEnd());
+        return new EventDto(event.getId(), event.getTitle(), event.getContent(), event.getDay().getWeekday(), event.getEventStart(), event.getEventEnd());
     }
 
 }

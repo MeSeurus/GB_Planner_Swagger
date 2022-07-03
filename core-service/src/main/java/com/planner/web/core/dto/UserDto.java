@@ -14,7 +14,7 @@ public class UserDto {
 
     private Long id;
     private String nickname;
-    private List<Event> eventList;
+    private List<EventDto> eventList;
 
     public UserDto(String nickname) {
         this.nickname = nickname;

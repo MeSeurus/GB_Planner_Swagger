@@ -25,18 +25,16 @@ public class UserController {
         userService.createNew(nickname);
     }
 
+    @GetMapping
+    public List<UserDto> findAll() {
+        return userService.findAll().stream().map(u -> userConverter.entityToDtoWithEvents(u)).collect(Collectors.toList());
+    }
+
     @GetMapping("/{nickname}")
     public UserDto getByNickname(@PathVariable String nickname) {
         User user = userService.findUserByUsername(nickname).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + nickname));
-        return userConverter.entityToDto(user);
+        return userConverter.entityToDtoWithEvents(user);
     }
-
-    @GetMapping
-    public List<User> findAllWithEvents() {
-        return userService.findAllWithEvents();
-//        return userService.findAllWithEvents().stream().map(u -> userConverter.entityToDtoWithEvents(u)).collect(Collectors.toList());
-    }
-
 
 
 }
