@@ -34,13 +34,18 @@ public class EventController {
      * todo переделать на RequestHeader
      */
     @GetMapping("/username/{username}")
-    public List<EventDto> findAllByUsername(@PathVariable String username) {
+    public List<EventDto> findEventsByUsername(@PathVariable String username) {
         return eventService.findAllByUsername(username).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
     }
 
     @PostMapping()
     public void createEvent(@RequestHeader List<String> usernameList, @RequestBody EventDetails eventDetails) {
         eventService.createEvent(usernameList, eventDetails);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteDyId(@PathVariable Long id) {
+        eventService.deleteById(id);
     }
 
 
