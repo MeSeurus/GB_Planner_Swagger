@@ -1,7 +1,7 @@
 package com.planner.web.core.contollers;
 
 import com.planner.web.api.exceptions.ResourceNotFoundException;
-import com.planner.web.core.converters.DayConverter;
+import com.planner.web.core.mapper.DayMapper;
 import com.planner.web.core.dto.DayDto;
 import com.planner.web.core.entities.Day;
 import com.planner.web.core.services.DayService;
@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class DayController {
 
     private final DayService dayService;
-    private final DayConverter dayConverter;
+    private final DayMapper dayMapper;
 
     @Operation(
             summary = "Запрос на получение всех дней и их событий",
@@ -37,7 +37,7 @@ public class DayController {
     )
     @GetMapping
     public List<DayDto> findAll() {
-        return dayService.findAll().stream().map(d -> dayConverter.entityToDto(d)).collect(Collectors.toList());
+        return dayService.findAll().stream().map(d -> dayMapper.entityToDto(d)).collect(Collectors.toList());
     }
 
     @Operation(
@@ -51,7 +51,7 @@ public class DayController {
     )
     @GetMapping("/id")
     public DayDto findById(@PathVariable @Parameter(description = "Идентификатор дня", required = true) Long id) {
-        return dayConverter.entityToDto(dayService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Day not found, day id = " + id)));
+        return dayMapper.entityToDto(dayService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Day not found, day id = " + id)));
     }
 
     @Operation(
@@ -59,7 +59,7 @@ public class DayController {
     )
     @PostMapping
     public void createNew(@RequestHeader DayDto dayDto) {
-        Day day = dayConverter.dtoToEntity(dayDto);
+        Day day = dayMapper.dtoToEntity(dayDto);
         dayService.createNew(day);
     }
 

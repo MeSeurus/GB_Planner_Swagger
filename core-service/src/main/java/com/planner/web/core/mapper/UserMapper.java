@@ -1,4 +1,4 @@
-package com.planner.web.core.converters;
+package com.planner.web.core.mapper;
 
 import com.planner.web.core.dto.EventDto;
 import com.planner.web.core.dto.UserDto;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserConverter {
+public class UserMapper {
 
     public User dtoToEntity(UserDto userDto) {
         return new User(userDto.getNickname());

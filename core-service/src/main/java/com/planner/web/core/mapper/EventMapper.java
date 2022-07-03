@@ -1,4 +1,4 @@
-package com.planner.web.core.converters;
+package com.planner.web.core.mapper;
 
 import com.planner.web.core.dto.EventDto;
 import com.planner.web.core.entities.Event;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class EventConverter {
+public class EventMapper {
 
     public Event dtoToEntity(EventDto eventDto) {
         throw new UnsupportedOperationException();

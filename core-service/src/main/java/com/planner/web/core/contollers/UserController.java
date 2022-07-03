@@ -1,8 +1,7 @@
 package com.planner.web.core.contollers;
 
 import com.planner.web.api.exceptions.ResourceNotFoundException;
-import com.planner.web.core.converters.UserConverter;
-import com.planner.web.core.dto.DayDto;
+import com.planner.web.core.mapper.UserMapper;
 import com.planner.web.core.dto.UserDto;
 import com.planner.web.core.entities.User;
 import com.planner.web.core.services.UserService;
@@ -25,7 +24,7 @@ import java.util.stream.Collectors;
 public class UserController {
 
     private final UserService userService;
-    private final UserConverter userConverter;
+    private final UserMapper userMapper;
 
     @PostMapping
     public void createNew(@RequestHeader String nickname) {
@@ -43,7 +42,7 @@ public class UserController {
             }
     )
     public List<UserDto> findAll() {
-        return userService.findAll().stream().map(u -> userConverter.entityToDtoWithEvents(u)).collect(Collectors.toList());
+        return userService.findAll().stream().map(u -> userMapper.entityToDtoWithEvents(u)).collect(Collectors.toList());
     }
 
     @GetMapping("/{nickname}")
@@ -58,7 +57,7 @@ public class UserController {
     )
     public UserDto getByNickname(@PathVariable @Parameter(description = "Имя пользователя", required = true) String nickname) {
         User user = userService.findUserByUsername(nickname).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + nickname));
-        return userConverter.entityToDtoWithEvents(user);
+        return userMapper.entityToDtoWithEvents(user);
     }
 
     @DeleteMapping("/{nickname}")

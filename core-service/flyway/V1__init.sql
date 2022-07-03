@@ -47,7 +47,8 @@ values (1, 'user1'),
 insert into users_events (user_id, event_id)
 values (1, 1),
        (2, 1),
-       (1, 2);
+       (1, 2),
+       (2,3);
 
 
 

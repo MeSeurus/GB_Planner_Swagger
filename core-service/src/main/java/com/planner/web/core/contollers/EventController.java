@@ -1,10 +1,8 @@
 package com.planner.web.core.contollers;
 
-import com.planner.web.core.converters.EventConverter;
-import com.planner.web.core.dto.DayDto;
+import com.planner.web.core.mapper.EventMapper;
 import com.planner.web.core.dto.EventDetails;
 import com.planner.web.core.dto.EventDto;
-import com.planner.web.core.entities.User;
 import com.planner.web.core.services.EventService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
@@ -25,7 +23,7 @@ import java.util.stream.Collectors;
 public class EventController {
 
     private final EventService eventService;
-    private final EventConverter eventConverter;
+    private final EventMapper eventMapper;
 
     @Operation(
             summary = "Запрос на получение всех событий",
@@ -38,7 +36,7 @@ public class EventController {
     )
     @GetMapping()
     public List<EventDto> findAll() {
-        return eventService.findAll().stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
+        return eventService.findAll().stream().map(e -> eventMapper.entityToDto(e)).collect(Collectors.toList());
     }
 
     @Operation(
@@ -52,7 +50,7 @@ public class EventController {
     )
     @GetMapping("/day/{id}")
     public List<EventDto> findEventsByDayId(@PathVariable @Parameter(description = "Идентификатор события", required = true) Long id) {
-        return eventService.findEventsByDayId(id).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
+        return eventService.findEventsByDayId(id).stream().map(e -> eventMapper.entityToDto(e)).collect(Collectors.toList());
     }
 
     /**
@@ -70,7 +68,7 @@ public class EventController {
             }
     )
     public List<EventDto> findEventsByUsername(@PathVariable @Parameter(description = "Имя пользователя", required = true) String username) {
-        return eventService.findAllByUsername(username).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
+        return eventService.findAllByUsername(username).stream().map(e -> eventMapper.entityToDto(e)).collect(Collectors.toList());
     }
 
     @PostMapping()
