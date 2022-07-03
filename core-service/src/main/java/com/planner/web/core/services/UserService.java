@@ -27,4 +27,8 @@ public class UserService {
     public List<User> findAll() {
         return userRepository.findAll();
     }
+
+    public void deleteByNickname(String nickname) {
+        userRepository.deleteByNickname(nickname);
+    }
 }

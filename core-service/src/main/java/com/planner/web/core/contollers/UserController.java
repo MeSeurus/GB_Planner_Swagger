@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -34,6 +33,11 @@ public class UserController {
     public UserDto getByNickname(@PathVariable String nickname) {
         User user = userService.findUserByUsername(nickname).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + nickname));
         return userConverter.entityToDtoWithEvents(user);
+    }
+
+    @DeleteMapping("/{nickname}")
+    public void deleteByNickname(@PathVariable String nickname) {
+        userService.deleteByNickname(nickname);
     }
 
 
