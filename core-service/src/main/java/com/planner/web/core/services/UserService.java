@@ -1,6 +1,5 @@
 package com.planner.web.core.services;
 
-import com.planner.web.core.dto.UserDto;
 import com.planner.web.core.entities.User;
 import com.planner.web.core.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -30,5 +29,9 @@ public class UserService {
 
     public void deleteByNickname(String nickname) {
         userRepository.deleteByNickname(nickname);
+    }
+
+    public void takeEvent(Long userId, Long eventId) {
+        userRepository.takeEvent(userId, eventId);
     }
 }

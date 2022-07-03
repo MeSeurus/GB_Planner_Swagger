@@ -40,7 +40,13 @@ public class UserController {
         userService.deleteByNickname(nickname);
     }
 
-
+    /**
+     * метод взятия пользователем задачи
+     */
+    @PostMapping("/take_event")
+    public void takeEvent(@RequestParam Long userId, @RequestParam Long eventId) {
+        userService.takeEvent(userId, eventId);
+    }
 
 
 }
