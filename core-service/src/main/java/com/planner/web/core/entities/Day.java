@@ -20,14 +20,10 @@ public class Day {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "date")
+    @Column(name = "cur_date")
     private Date date;
 
     @Column(name = "weekday")
     private String weekday;
-
-    @JoinColumn(name = "event_id")
-    @OneToMany(mappedBy = "day")
-    private List<Event> events;
 
 }

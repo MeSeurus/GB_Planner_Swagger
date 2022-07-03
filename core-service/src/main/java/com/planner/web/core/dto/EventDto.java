@@ -8,19 +8,19 @@ public class EventDto {
 
     private Long id;
 
-    private String name;
+    private String title;
 
     private String content;
 
-    private List<String> userNames;
+    private List<UserDto> usernameList;
 
     private Day day;
 
-    public EventDto(Long id, String name, String content, List<String> userNames, Day day) {
+    public EventDto(Long id, String title, String content, List<UserDto> usernameList, Day day) {
         this.id = id;
-        this.name = name;
+        this.title = title;
         this.content = content;
-        this.userNames = userNames;
+        this.usernameList = usernameList;
         this.day = day;
     }
 
@@ -32,12 +32,12 @@ public class EventDto {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.title = name;
     }
 
     public String getContent() {
@@ -48,12 +48,12 @@ public class EventDto {
         this.content = content;
     }
 
-    public List<String> getUserNames() {
-        return userNames;
+    public List<UserDto> getUsernameList() {
+        return usernameList;
     }
 
-    public void setUserNames(List<String> userNames) {
-        this.userNames = userNames;
+    public void setUsernameList(List<UserDto> usernameList) {
+        this.usernameList = usernameList;
     }
 
     public Day getDay() {

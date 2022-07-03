@@ -3,6 +3,7 @@ package com.planner.web.core.contollers;
 import com.planner.web.core.converters.EventConverter;
 import com.planner.web.core.dto.EventDetails;
 import com.planner.web.core.dto.EventDto;
+import com.planner.web.core.entities.User;
 import com.planner.web.core.services.EventService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +20,8 @@ public class EventController {
     private final EventConverter eventConverter;
 
     @GetMapping("/day/{id}")
-    public List<EventDto> findAllByDay(Long dayId) {
-        return eventService.findAllByDay(dayId).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
+    public List<EventDto> findEventsByDayId(@PathVariable Long id) {
+        return eventService.findEventsByDayId(id).stream().map(e -> eventConverter.entityToDto(e)).collect(Collectors.toList());
     }
 
     @GetMapping()
@@ -29,8 +30,8 @@ public class EventController {
     }
 
     @PostMapping()
-    public void createEvent(@RequestHeader List<String> userNames, @RequestBody EventDetails eventDetails) {
-        eventService.createEvent(userNames, eventDetails);
+    public void createEvent(@RequestHeader List<String> usernameList, @RequestBody EventDetails eventDetails) {
+        eventService.createEvent(usernameList, eventDetails);
     }
 
 

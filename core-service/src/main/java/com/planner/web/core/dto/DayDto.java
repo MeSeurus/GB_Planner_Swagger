@@ -6,20 +6,14 @@ import java.util.Date;
 import java.util.List;
 
 public class DayDto {
-
     private Long id;
-
     private Date date;
-
     private String weekday;
 
-    private List<Event> events;
-
-    public DayDto(Long id, Date date, String weekday, List<Event> events) {
+    public DayDto(Long id, Date date, String weekday) {
         this.id = id;
         this.date = date;
         this.weekday = weekday;
-        this.events = events;
     }
 
     public Long getId() {
@@ -46,11 +40,4 @@ public class DayDto {
         this.weekday = weekday;
     }
 
-    public List<Event> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<Event> events) {
-        this.events = events;
-    }
 }
