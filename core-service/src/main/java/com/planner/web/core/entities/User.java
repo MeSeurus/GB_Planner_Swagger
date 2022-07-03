@@ -22,6 +22,9 @@ public class User {
     @Column(name = "nickname")
     private String nickname;
 
+    /**
+     * понимаю, что это fetch = FetchType.EAGER нехорошая идея, но как правильно заменить не знаю
+     */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_events",

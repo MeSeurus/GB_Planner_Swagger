@@ -26,4 +26,10 @@ public class Day {
     @Column(name = "weekday")
     private String weekday;
 
+    /**
+     * точно так же не знаю как правильно заменить fetch = FetchType.EAGER
+     */
+    @OneToMany(mappedBy = "day", fetch = FetchType.EAGER)
+    private List<Event> events;
+
 }
