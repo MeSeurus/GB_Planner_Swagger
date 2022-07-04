@@ -27,6 +27,14 @@ public class UserController {
     private final UserMapper userMapper;
 
     @PostMapping
+    @Operation(
+            summary = "Запрос на создание нового пользователя",
+            responses = {
+                    @ApiResponse(
+                            description = "Успешный ответ", responseCode = "200"
+                    )
+            }
+    )
     public void createNew(@RequestHeader String nickname) {
         userService.createNew(nickname);
     }
