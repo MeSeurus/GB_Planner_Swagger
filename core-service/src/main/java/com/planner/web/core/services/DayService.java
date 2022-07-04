@@ -1,6 +1,5 @@
 package com.planner.web.core.services;
 
-import com.planner.web.core.dto.DayDto;
 import com.planner.web.core.entities.Day;
 import com.planner.web.core.repositories.DayRepository;
 import lombok.RequiredArgsConstructor;

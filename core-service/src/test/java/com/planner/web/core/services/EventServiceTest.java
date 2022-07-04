@@ -1,4 +1,4 @@
-package com.planner.web.core;
+package com.planner.web.core.services;
 
 import com.planner.web.core.entities.Day;
 import com.planner.web.core.entities.Event;
@@ -16,7 +16,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @SpringBootTest
 public class EventServiceTest {

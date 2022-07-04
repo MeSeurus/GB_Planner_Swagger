@@ -1,4 +1,4 @@
-package com.planner.web.core;
+package com.planner.web.core.services;
 
 import com.planner.web.core.entities.User;
 import com.planner.web.core.repositories.UserRepository;

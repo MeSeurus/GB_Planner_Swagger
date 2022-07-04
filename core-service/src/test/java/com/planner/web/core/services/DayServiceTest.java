@@ -1,11 +1,8 @@
-package com.planner.web.core;
+package com.planner.web.core.services;
 
 import com.planner.web.core.entities.Day;
-import com.planner.web.core.entities.User;
 import com.planner.web.core.repositories.DayRepository;
-import com.planner.web.core.repositories.UserRepository;
 import com.planner.web.core.services.DayService;
-import com.planner.web.core.services.UserService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

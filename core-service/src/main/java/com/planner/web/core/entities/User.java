@@ -28,4 +28,9 @@ public class User {
     public User(String nickname) {
         this.nickname = nickname;
     }
+
+    public User(Long id, String nickname) {
+        this.id = id;
+        this.nickname = nickname;
+    }
 }
