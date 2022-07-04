@@ -9,7 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -22,9 +21,8 @@ public class EventService {
         return eventRepository.findAllByDayId(dayId);
     }
 
-    public List<Event> findAllByUsername(String username) {
-        User user =  userService.findUserByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + username));
-        return eventRepository.findEventsByUser(user);
+    public List<Event> findEventsByUser(String username) {
+        return eventRepository.findEventsByUser(username);
     }
 
     public void createEvent(String username, EventDetails eventDetails) {
