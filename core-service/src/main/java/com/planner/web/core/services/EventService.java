@@ -24,15 +24,14 @@ public class EventService {
 
     public List<Event> findAllByUsername(String username) {
         User user =  userService.findUserByUsername(username).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + username));
-        return eventRepository.findEventsByUsers(user);
+        return eventRepository.findEventsByUser(user);
     }
 
-    public void createEvent(List<String> usernameList, EventDetails eventDetails) {
-        List<User> users = usernameList.stream().map(u -> new User(u)).collect(Collectors.toList());
+    public void createEvent(String username, EventDetails eventDetails) {
         Event event = Event.builder()
                 .title(eventDetails.getTitle())
                 .content(eventDetails.getContent())
-                .users(users)
+                .user(new User(username))
                 .day(eventDetails.getDay())
                 .build();
         eventRepository.save(event);

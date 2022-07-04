@@ -16,6 +16,9 @@ public class EventDto {
     @Schema(description = "День недели", required = true, example = "Friday")
     private String dayName;
 
+    @Schema(description = "Пользователь ответственный за событие", required = true, example = "user1")
+    private String nickname;
+
     /**
      * Вот тут вопрос, событие на один день или на несколько?
      * Если на один, то смысла не имеет, можно дату создания запоминать просто
@@ -26,11 +29,12 @@ public class EventDto {
     @Schema(description = "Дата окончания события", required = true)
     private LocalDateTime eventEnd;
 
-    public EventDto(Long id, String title, String content, String dayName, LocalDateTime eventStart, LocalDateTime eventEnd) {
+    public EventDto(Long id, String title, String content, String dayName, String nickname, LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.dayName = dayName;
+        this.nickname = nickname;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
     }
@@ -54,8 +58,8 @@ public class EventDto {
         return title;
     }
 
-    public void setName(String name) {
-        this.title = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getContent() {
@@ -66,15 +70,48 @@ public class EventDto {
         this.content = content;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
     public String getDayName() {
         return dayName;
     }
 
     public void setDayName(String dayName) {
         this.dayName = dayName;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public LocalDateTime getEventStart() {
+        return eventStart;
+    }
+
+    public void setEventStart(LocalDateTime eventStart) {
+        this.eventStart = eventStart;
+    }
+
+    public LocalDateTime getEventEnd() {
+        return eventEnd;
+    }
+
+    public void setEventEnd(LocalDateTime eventEnd) {
+        this.eventEnd = eventEnd;
+    }
+
+    @Override
+    public String toString() {
+        return "EventDto{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", dayName='" + dayName + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", eventStart=" + eventStart +
+                ", eventEnd=" + eventEnd +
+                '}';
     }
 }

@@ -14,15 +14,6 @@ public class DayDto {
     @Schema(description = "День недели", required = true, example = "Friday")
     private String weekday;
 
-    @Schema(description = "Список событий", required = true)
-    private List<EventDto> events;
-
-    public DayDto(Long id, Date date, String weekday, List<EventDto> events) {
-        this.id = id;
-        this.date = date;
-        this.weekday = weekday;
-        this.events = events;
-    }
 
     public DayDto(Long id, Date date, String weekday) {
         this.id = id;
@@ -54,11 +45,4 @@ public class DayDto {
         this.weekday = weekday;
     }
 
-    public List<EventDto> getEvents() {
-        return events;
-    }
-
-    public void setEvents(List<EventDto> events) {
-        this.events = events;
-    }
 }

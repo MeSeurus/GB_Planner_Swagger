@@ -5,6 +5,7 @@ import com.planner.web.core.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,11 +28,9 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    @Transactional
     public void deleteByNickname(String nickname) {
         userRepository.deleteByNickname(nickname);
     }
 
-    public void takeEvent(Long userId, Long eventId) {
-        userRepository.takeEvent(userId, eventId);
-    }
 }

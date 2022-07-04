@@ -1,5 +1,6 @@
 package com.planner.web.core.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,13 +27,9 @@ public class Event {
     @Column(name = "content")
     private String content;
 
-    @ManyToMany
-    @JoinTable(
-            name = "users_events",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "day_id")
@@ -44,11 +41,11 @@ public class Event {
     @Column(name = "event_end")
     private LocalDateTime eventEnd;
 
-    public Event(Long id, String title, String content, List<User> users, Day day) {
+    public Event(Long id, String title, String content, User user, Day day) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.users = users;
+        this.user = user;
         this.day = day;
     }
 

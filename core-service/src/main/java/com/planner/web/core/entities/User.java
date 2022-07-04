@@ -22,16 +22,7 @@ public class User {
     @Column(name = "nickname")
     private String nickname;
 
-    /**
-     * понимаю, что это fetch = FetchType.EAGER нехорошая идея, но как правильно заменить не знаю
-     */
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name = "users_events",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "event_id")
-    )
-    @JsonIgnoreProperties("users")
+    @OneToMany(mappedBy = "user", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Event> events;
 
     public User(String nickname) {

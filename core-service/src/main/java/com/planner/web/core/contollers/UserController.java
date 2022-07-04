@@ -33,7 +33,7 @@ public class UserController {
 
     @GetMapping
     @Operation(
-            summary = "Запрос на получение всех пользователей и их событий",
+            summary = "Запрос на получение всех пользователей",
             responses = {
                     @ApiResponse(
                             description = "Успешный ответ", responseCode = "200",
@@ -42,7 +42,7 @@ public class UserController {
             }
     )
     public List<UserDto> findAll() {
-        return userService.findAll().stream().map(u -> userMapper.entityToDtoWithEvents(u)).collect(Collectors.toList());
+        return userService.findAll().stream().map(u -> userMapper.entityToDto(u)).collect(Collectors.toList());
     }
 
     @GetMapping("/{nickname}")
@@ -57,7 +57,7 @@ public class UserController {
     )
     public UserDto getByNickname(@PathVariable @Parameter(description = "Имя пользователя", required = true) String nickname) {
         User user = userService.findUserByUsername(nickname).orElseThrow(() -> new ResourceNotFoundException("User not found, nickname = " + nickname));
-        return userMapper.entityToDtoWithEvents(user);
+        return userMapper.entityToDto(user);
     }
 
     @DeleteMapping("/{nickname}")
@@ -71,22 +71,6 @@ public class UserController {
     )
     public void deleteByNickname(@PathVariable @Parameter(description = "Имя пользователя", required = true) String nickname) {
         userService.deleteByNickname(nickname);
-    }
-
-    /**
-     * метод взятия пользователем задачи
-     */
-    @PostMapping("/take_event")
-    @Operation(
-            summary = "Запрос на получение пользователем задачи",
-            responses = {
-                    @ApiResponse(
-                            description = "Успешный ответ", responseCode = "200"
-                    )
-            }
-    )
-    public void takeEvent(@RequestParam Long userId, @RequestParam Long eventId) {
-        userService.takeEvent(userId, eventId);
     }
 
 

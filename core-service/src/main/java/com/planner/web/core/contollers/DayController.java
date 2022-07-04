@@ -27,7 +27,7 @@ public class DayController {
     private final DayMapper dayMapper;
 
     @Operation(
-            summary = "Запрос на получение всех дней и их событий",
+            summary = "Запрос на получение всех дней",
             responses = {
                     @ApiResponse(
                             description = "Успешный ответ", responseCode = "200",
@@ -49,7 +49,7 @@ public class DayController {
                     )
             }
     )
-    @GetMapping("/id")
+    @GetMapping("/{id}")
     public DayDto findById(@PathVariable @Parameter(description = "Идентификатор дня", required = true) Long id) {
         return dayMapper.entityToDto(dayService.findById(id).orElseThrow(() -> new ResourceNotFoundException("Day not found, day id = " + id)));
     }

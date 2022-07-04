@@ -16,9 +16,4 @@ public interface UserRepository extends JpaRepository<User, Long> {
      List<User> findAll();
      void deleteByNickname(String nickname);
 
-     // пока не работает
-     @Query(value = "insert into users_events (user_id, event_id) " +
-             "values (:userId, :eventId)",
-             nativeQuery = true)
-     void takeEvent(@Param("userId") Long userId,@Param("eventId") Long eventId);
 }

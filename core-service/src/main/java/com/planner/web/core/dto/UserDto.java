@@ -11,17 +11,14 @@ public class UserDto {
     @Schema(description = "Имя пользователя", required = true, example = "user1")
     private String nickname;
 
-    @Schema(description = "Список событий пользователя", required = false)
-    private List<EventDto> eventList;
 
     public UserDto(String nickname) {
         this.nickname = nickname;
     }
 
-    public UserDto(Long id, String nickname, List<EventDto> eventList) {
+    public UserDto(Long id, String nickname) {
         this.id = id;
         this.nickname = nickname;
-        this.eventList = eventList;
     }
 
     public UserDto() {
@@ -43,11 +40,4 @@ public class UserDto {
         this.nickname = nickname;
     }
 
-    public List<EventDto> getEventList() {
-        return eventList;
-    }
-
-    public void setEventList(List<EventDto> eventList) {
-        this.eventList = eventList;
-    }
 }

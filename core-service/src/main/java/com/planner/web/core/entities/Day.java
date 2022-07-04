@@ -26,10 +26,12 @@ public class Day {
     @Column(name = "weekday")
     private String weekday;
 
-    /**
-     * точно так же не знаю как правильно заменить fetch = FetchType.EAGER
-     */
-    @OneToMany(mappedBy = "day", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "day", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Event> events;
 
+    public Day(Long id, Date date, String weekday) {
+        this.id = id;
+        this.date = date;
+        this.weekday = weekday;
+    }
 }

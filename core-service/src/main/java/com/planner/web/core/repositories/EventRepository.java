@@ -17,6 +17,6 @@ public interface EventRepository extends JpaRepository<Event, Long> {
     )
     List<Event> findAllByDayId(@Param("id") Long id);
 
-    List<Event> findEventsByUsers(User username);
+    List<Event> findEventsByUser(User username);
 
 }

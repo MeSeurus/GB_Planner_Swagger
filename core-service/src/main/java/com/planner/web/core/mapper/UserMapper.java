@@ -16,13 +16,8 @@ public class UserMapper {
     }
 
     public UserDto entityToDto(User user) {
-        return new UserDto(user.getNickname());
+        return new UserDto(user.getId(), user.getNickname());
     }
 
-    public UserDto entityToDtoWithEvents(User user) {
-        List<EventDto> eventDtos = user.getEvents().stream().
-                map(e -> new EventDto(e.getId(), e.getTitle(), e.getContent(), e.getDay().getWeekday())).collect(Collectors.toList());
-        return new UserDto(user.getId(), user.getNickname(), eventDtos);
-    }
 
 }

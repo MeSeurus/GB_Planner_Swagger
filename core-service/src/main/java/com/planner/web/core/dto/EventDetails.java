@@ -1,6 +1,7 @@
 package com.planner.web.core.dto;
 
 import com.planner.web.core.entities.Day;
+import com.planner.web.core.entities.User;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.util.List;
@@ -11,16 +12,17 @@ public class EventDetails {
     private String title;
     @Schema(description = "Описание события", required = true)
     private String content;
-    @Schema(description = "Список пользователей", required = false)
-    private List<String> userNames;
+
+    @Schema(description = "Пользователь события", required = false)
+    private String username;
 
     @Schema(description = "День события", required = true)
     private Day day;
 
-    public EventDetails(String title, String content, List<String> userNames, Day day) {
+    public EventDetails(String title, String content, String username, Day day) {
         this.title = title;
         this.content = content;
-        this.userNames = userNames;
+        this.username = username;
         this.day = day;
     }
 
@@ -40,12 +42,12 @@ public class EventDetails {
         this.content = content;
     }
 
-    public List<String> getUserNames() {
-        return userNames;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserNames(List<String> userNames) {
-        this.userNames = userNames;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Day getDay() {

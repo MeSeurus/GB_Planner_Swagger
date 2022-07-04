@@ -40,7 +40,7 @@ public class EventController {
     }
 
     @Operation(
-            summary = "Запрос на получение события по id",
+            summary = "Запрос на получение события по id дня",
             responses = {
                     @ApiResponse(
                             description = "Успешный ответ", responseCode = "200",
@@ -80,8 +80,8 @@ public class EventController {
                     )
             }
     )
-    public void createEvent(@RequestHeader @Parameter(description = "Список пользователей", required = false) List<String> usernameList, @RequestBody EventDetails eventDetails) {
-        eventService.createEvent(usernameList, eventDetails);
+    public void createEvent(@RequestHeader @Parameter(description = "Список пользователей", required = true) String username, @RequestBody EventDetails eventDetails) {
+        eventService.createEvent(username, eventDetails);
     }
 
     @DeleteMapping("/{id}")
