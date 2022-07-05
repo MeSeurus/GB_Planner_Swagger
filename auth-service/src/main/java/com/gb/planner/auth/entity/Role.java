@@ -1,4 +1,4 @@
-package com.gb.planner.auth.entities;
+package com.gb.planner.auth.entity;
 
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;

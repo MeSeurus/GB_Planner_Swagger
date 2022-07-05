@@ -1,4 +1,4 @@
-package com.gb.planner.auth.utils;
+package com.gb.planner.auth.util;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

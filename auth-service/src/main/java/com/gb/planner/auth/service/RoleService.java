@@ -1,7 +1,7 @@
-package com.gb.planner.auth.services;
+package com.gb.planner.auth.service;
 
-import com.gb.planner.auth.entities.Role;
-import com.gb.planner.auth.repositories.RoleRepository;
+import com.gb.planner.auth.entity.Role;
+import com.gb.planner.auth.repository.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,4 +1,4 @@
-package com.gb.planner.auth.configs;
+package com.gb.planner.auth.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

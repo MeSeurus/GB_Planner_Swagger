@@ -1,6 +1,6 @@
-package com.gb.planner.auth.repositories;
+package com.gb.planner.auth.repository;
 
-import com.gb.planner.auth.entities.Role;
+import com.gb.planner.auth.entity.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

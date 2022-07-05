@@ -1,7 +1,12 @@
 package com.gb.planner.api;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "JWT-запроc")
 public class JwtRequest {
+    @Schema(description = "Имя пользователя")
     private String username;
+    @Schema(description = "Пароль пользователя")
     private String password;
 
     public String getUsername() {

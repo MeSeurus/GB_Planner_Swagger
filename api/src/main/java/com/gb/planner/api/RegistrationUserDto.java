@@ -1,11 +1,20 @@
 package com.gb.planner.api;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
+@Schema(description = "Модель регистрирующегося пользователя")
 public class RegistrationUserDto {
+    @Schema(description = "Никнейм пользователя")
     private String username;
+    @Schema(description = "Имя пользователя")
     private String firstName;
+    @Schema(description = "Фамилия пользователя")
     private String lastName;
+    @Schema(description = "Пароль пользователя")
     private String password;
+    @Schema(description = "Подтверждение пароля пользователя")
     private String confirmPassword;
+    @Schema(description = "Электронная почта пользователя")
     private String email;
 
     public String getUsername() {

@@ -1,8 +1,8 @@
-package com.gb.planner.auth.services;
+package com.gb.planner.auth.service;
 
-import com.gb.planner.auth.entities.Role;
-import com.gb.planner.auth.entities.User;
-import com.gb.planner.auth.repositories.UserRepository;
+import com.gb.planner.auth.entity.Role;
+import com.gb.planner.auth.entity.User;
+import com.gb.planner.auth.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
