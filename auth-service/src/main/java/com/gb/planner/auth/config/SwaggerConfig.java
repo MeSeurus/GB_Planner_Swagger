@@ -1,8 +1,6 @@
 package com.gb.planner.auth.config;
 
 
-
-
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;

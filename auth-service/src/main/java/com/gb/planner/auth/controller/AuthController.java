@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@Tag(name="Контроллер, отвечающий за аутентификацию пользователей", description="Позволяет получить уникальный токен на основании запроса аутентификации")
+@Tag(name = "Контроллер, отвечающий за аутентификацию пользователей", description = "Позволяет получить уникальный токен на основании запроса аутентификации")
 public class AuthController {
     private final UserService userService;
     private final JwtTokenUtil jwtTokenUtil;
@@ -35,7 +35,7 @@ public class AuthController {
             summary = "Аутентификация",
             description = "Позволяет аутентифицировать пользователя и возвращает токен",
             responses = {
-                    @ApiResponse( description = "Успешный ответ", responseCode = "200")
+                    @ApiResponse(description = "Успешный ответ", responseCode = "200")
             }
     )
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {

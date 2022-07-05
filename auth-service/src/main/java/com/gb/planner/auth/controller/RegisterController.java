@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@Tag(name="Контроллер, отвечающий за регистрацию пользователей", description="Позволяет зарегистрироваться новому пользователю")
+@Tag(name = "Контроллер, отвечающий за регистрацию пользователей", description = "Позволяет зарегистрироваться новому пользователю")
 public class RegisterController {
 
     private final UserService userService;
@@ -33,7 +33,7 @@ public class RegisterController {
             summary = "Регистрация пользователя",
             description = "Позволяет зарегистрировать нового пользователя и сразу сгенерировать для него уникальный токен, который понадобится для последующей аутентификации",
             responses = {
-                    @ApiResponse( description = "Успешный ответ", responseCode = "200")
+                    @ApiResponse(description = "Успешный ответ", responseCode = "200")
             }
     )
     public ResponseEntity<?> createAuthToken(@RequestBody RegistrationUserDto registrationUserDto) {
