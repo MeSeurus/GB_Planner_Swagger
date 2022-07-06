@@ -9,7 +9,6 @@ spring:
     password: postgres
     url: jdbc:postgresql://localhost:5433/postgres
 
-
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     database: POSTGRESQL
@@ -20,3 +19,8 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: none
+  application:
+    name: core-service
+  cloud:
+    config:
+      uri: http://localhost:8888
