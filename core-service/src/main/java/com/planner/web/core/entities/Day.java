@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -21,17 +21,23 @@ public class Day {
     private Long id;
 
     @Column(name = "cur_date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "weekday")
-    private String weekday;
+    private Integer weekday;
 
     @OneToMany(mappedBy = "day", cascade = {CascadeType.PERSIST, CascadeType.REMOVE})
     private List<Event> events;
 
-    public Day(Long id, Date date, String weekday) {
+    public Day(Long id, LocalDate date, Integer weekday) {
         this.id = id;
         this.date = date;
         this.weekday = weekday;
+    }
+    
+    public Day(Long id, LocalDate date){
+        this.id = id;
+        this.date = date;
+        this.weekday = date.getDayOfWeek().getValue();
     }
 }

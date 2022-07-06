@@ -1,7 +1,6 @@
-package com.planner.web.core.dto;
+package com.planner.web.api.core;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import java.util.List;
 
 @Schema(description = "Модель пользователя")
 public class UserDto {
@@ -10,7 +9,6 @@ public class UserDto {
 
     @Schema(description = "Имя пользователя", required = true, example = "user1")
     private String nickname;
-
 
     public UserDto(String nickname) {
         this.nickname = nickname;

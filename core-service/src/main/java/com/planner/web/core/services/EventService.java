@@ -1,6 +1,5 @@
 package com.planner.web.core.services;
 
-import com.planner.web.api.exceptions.ResourceNotFoundException;
 import com.planner.web.core.dto.EventDetails;
 import com.planner.web.core.entities.Event;
 import com.planner.web.core.entities.User;

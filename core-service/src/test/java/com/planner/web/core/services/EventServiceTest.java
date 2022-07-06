@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -32,7 +33,7 @@ public class EventServiceTest {
     @BeforeEach
     public void init() {
         userJohn = new User("John");
-        day = new Day(1l, new Date(), "Monday");
+        day = new Day(1l, LocalDate.of(2022, 1, 1));
         Event createProgram =
                 Event.builder()
                         .id(1l)

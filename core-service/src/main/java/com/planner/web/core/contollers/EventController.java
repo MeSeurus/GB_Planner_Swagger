@@ -2,7 +2,7 @@ package com.planner.web.core.contollers;
 
 import com.planner.web.core.mapper.EventMapper;
 import com.planner.web.core.dto.EventDetails;
-import com.planner.web.core.dto.EventDto;
+import com.planner.web.api.core.EventDto;
 import com.planner.web.core.services.EventService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;

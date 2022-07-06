@@ -2,7 +2,7 @@ package com.planner.web.core.contollers;
 
 import com.planner.web.api.exceptions.ResourceNotFoundException;
 import com.planner.web.core.mapper.DayMapper;
-import com.planner.web.core.dto.DayDto;
+import com.planner.web.api.core.DayDto;
 import com.planner.web.core.entities.Day;
 import com.planner.web.core.services.DayService;
 import io.swagger.v3.oas.annotations.Operation;

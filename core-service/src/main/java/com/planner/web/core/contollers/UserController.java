@@ -2,7 +2,7 @@ package com.planner.web.core.contollers;
 
 import com.planner.web.api.exceptions.ResourceNotFoundException;
 import com.planner.web.core.mapper.UserMapper;
-import com.planner.web.core.dto.UserDto;
+import com.planner.web.api.core.UserDto;
 import com.planner.web.core.entities.User;
 import com.planner.web.core.services.UserService;
 import io.swagger.v3.oas.annotations.Operation;
