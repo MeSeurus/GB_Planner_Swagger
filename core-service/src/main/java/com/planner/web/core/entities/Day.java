@@ -40,4 +40,9 @@ public class Day {
         this.date = date;
         this.weekday = date.getDayOfWeek().getValue();
     }
+
+    public Day(LocalDate date){
+        this.date = date;
+        this.weekday = date.getDayOfWeek().getValue();
+    }
 }
