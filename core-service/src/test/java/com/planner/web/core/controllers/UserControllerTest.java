@@ -1,6 +1,5 @@
 package com.planner.web.core.controllers;
 
-import com.planner.web.core.dto.UserDto;
 import com.planner.web.core.entities.User;
 import com.planner.web.core.mapper.UserMapper;
 import com.planner.web.core.repositories.UserRepository;

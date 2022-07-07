@@ -1,10 +1,7 @@
 package com.planner.web.core.dto;
 
 import com.planner.web.core.entities.Day;
-import com.planner.web.core.entities.User;
 import io.swagger.v3.oas.annotations.media.Schema;
-
-import java.util.List;
 
 @Schema(description = "Модель деталей события")
 public class EventDetails {

@@ -1,7 +1,6 @@
 package com.planner.web.core.repositories;
 
 import com.planner.web.core.entities.Event;
-import com.planner.web.core.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;

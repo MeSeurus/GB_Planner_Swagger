@@ -1,8 +1,7 @@
 package com.planner.web.core.mapper;
 
-import com.planner.web.core.dto.EventDto;
+import com.planner.web.api.core.EventDto;
 import com.planner.web.core.entities.Event;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 

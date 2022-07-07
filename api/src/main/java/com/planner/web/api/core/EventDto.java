@@ -1,4 +1,4 @@
-package com.planner.web.core.dto;
+package com.planner.web.api.core;
 import io.swagger.v3.oas.annotations.media.Schema;
 
 import java.time.LocalDateTime;
@@ -13,8 +13,8 @@ public class EventDto {
     @Schema(description = "Описание события", required = true)
     private String content;
 
-    @Schema(description = "День недели", required = true, example = "Friday")
-    private String dayName;
+    @Schema(description = "День недели", required = true, example = "5")
+    private Integer weekday;
 
     @Schema(description = "Пользователь ответственный за событие", required = true, example = "user1")
     private String nickname;
@@ -29,21 +29,21 @@ public class EventDto {
     @Schema(description = "Дата окончания события", required = true)
     private LocalDateTime eventEnd;
 
-    public EventDto(Long id, String title, String content, String dayName, String nickname, LocalDateTime eventStart, LocalDateTime eventEnd) {
+    public EventDto(Long id, String title, String content, Integer weekday, String nickname, LocalDateTime eventStart, LocalDateTime eventEnd) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.dayName = dayName;
+        this.weekday = weekday;
         this.nickname = nickname;
         this.eventStart = eventStart;
         this.eventEnd = eventEnd;
     }
 
-    public EventDto(Long id, String title, String content, String dayName) {
+    public EventDto(Long id, String title, String content, Integer weekday) {
         this.id = id;
         this.title = title;
         this.content = content;
-        this.dayName = dayName;
+        this.weekday = weekday;
     }
 
     public Long getId() {
@@ -70,14 +70,6 @@ public class EventDto {
         this.content = content;
     }
 
-    public String getDayName() {
-        return dayName;
-    }
-
-    public void setDayName(String dayName) {
-        this.dayName = dayName;
-    }
-
     public String getNickname() {
         return nickname;
     }
@@ -102,13 +94,21 @@ public class EventDto {
         this.eventEnd = eventEnd;
     }
 
+    public Integer getWeekday() {
+        return weekday;
+    }
+
+    public void setWeekday(Integer weekday) {
+        this.weekday = weekday;
+    }
+
     @Override
     public String toString() {
         return "EventDto{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
                 ", content='" + content + '\'' +
-                ", dayName='" + dayName + '\'' +
+                ", weekday='" + weekday + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", eventStart=" + eventStart +
                 ", eventEnd=" + eventEnd +
