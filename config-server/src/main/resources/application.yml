@@ -5,4 +5,4 @@ spring:
     config:
       server:
         git:
-          uri: file://github.com/MeSeurus/GB_Planner_Swagger/blob/core-service/core-service/src/main/resources/application.yaml
+          uri: file://github.com/MeSeurus/client-config/core-service-dev.yaml
