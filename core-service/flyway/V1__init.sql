@@ -1,7 +1,7 @@
 create table if not exists days
 (
     id              bigserial primary key,
-    cur_date        date not null,
+    cur_date        date not null unique,
     weekday         int not null
     );
 
@@ -27,7 +27,7 @@ create table if not exists events
 
 insert into days (id, cur_date, weekday)
 values (1, '2022-06-24', 5),
-       (2, '2022-06-24', 6);
+       (2, '2022-06-25', 6);
 
 insert into users (id, nickname)
 values (1, 'user1'),
